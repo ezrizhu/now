@@ -7,7 +7,6 @@ import (
 	"net/http"
 	"os"
 	"text/tabwriter"
-	"time"
 )
 
 func main() {
@@ -21,10 +20,10 @@ func info() {
 	w := tabwriter.NewWriter(os.Stdout, 40, 0, 1, ' ', 0)
 
 	fmt.Fprintln(w, "Name: Ezri Zhu"+
-		"\tPronouns: they/any")
+		"\tLocation: NYC")
 
-	fmt.Fprintln(w, "www: https://ezrizhu.com"+
-		"\temail: me@ezrizhu.com")
+	fmt.Fprintln(w, "www: https://ezri.pet"+
+		"\temail: me@ezri.pet")
 
 	fmt.Fprintln(w, "fedi: @ezri@sleepless.cafe"+
 		"\tmatrix: @ezri:envs.net")
@@ -34,11 +33,6 @@ func info() {
 
 	fmt.Fprintln(w, "nic-hdl(RIPE): EZRI-RIPE"+
 		"\tnic-hdl(ARIN): ZHUEZ-ARIN")
-
-	loc, _ := time.LoadLocation("America/New_York")
-	now := time.Now().In(loc)
-	fmt.Fprintln(w, "Time: "+now.Format(time.RFC1123)+
-		"\tLocation: NYC")
 
 	w.Flush()
 
