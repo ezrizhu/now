@@ -19,26 +19,16 @@ func info() {
 	// func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
 	w := tabwriter.NewWriter(os.Stdout, 40, 0, 1, ' ', 0)
 
-	fmt.Fprintln(w, "Name: Ezri Zhu"+
+	fmt.Fprintln(w, "Name: ezrieh"+
 		"\tLocation: NYC")
 
 	fmt.Fprintln(w, "www: https://ezri.pet"+
 		"\temail: me@ezri.pet")
 
-	fmt.Fprintln(w, "fedi: @ezri@sleepless.cafe"+
+	fmt.Fprintln(w, "fedi: @ezri@starry.cafe"+
 		"\tmatrix: @ezri:envs.net")
 
-	fmt.Fprintln(w, "Network: EzriCloud"+
-		"\tASN: 206628")
-
-	fmt.Fprintln(w, "nic-hdl(RIPE): EZRI-RIPE"+
-		"\tnic-hdl(ARIN): ZHUEZ-ARIN")
-
 	w.Flush()
-
-	fmt.Println()
-	fmt.Println("Steam Status")
-	steam()
 
 	fmt.Println("Discord Status")
 	discord()
@@ -88,22 +78,6 @@ func ide0() {
 
 func discord() {
 	resp, err := http.Get("https://api.ezri.pet/discord.text")
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer resp.Body.Close()
-
-	// read the response body
-	body, err := ioutil.ReadAll(resp.Body)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	fmt.Println(string(body))
-}
-
-func steam() {
-	resp, err := http.Get("https://api.ezri.pet/steam.text")
 	if err != nil {
 		log.Fatal(err)
 	}
