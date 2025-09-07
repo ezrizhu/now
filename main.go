@@ -19,8 +19,8 @@ func info() {
 	// func NewWriter(output io.Writer, minwidth, tabwidth, padding int, padchar byte, flags uint) *Writer
 	w := tabwriter.NewWriter(os.Stdout, 40, 0, 1, ' ', 0)
 
-	fmt.Fprintln(w, "Name: ezrieh"+
-		"\tLocation: NYC")
+	fmt.Fprintln(w, "name: ezrieh"+
+		"\tlocation: NYC")
 
 	fmt.Fprintln(w, "www: https://ezri.pet"+
 		"\temail: me@ezri.pet")
@@ -30,6 +30,7 @@ func info() {
 
 	w.Flush()
 
+	fmt.Println()
 	fmt.Println("Discord Status")
 	discord()
 
